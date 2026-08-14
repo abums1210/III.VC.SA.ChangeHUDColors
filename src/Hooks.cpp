@@ -1,6 +1,6 @@
-#include <cstdlib>
 #include "../includes/Hooks.h"
 #include "../includes/ColorsConfig.h"
+#include "../includes/InputHandler.h"
 #ifdef GTASA
 #include <CHudColours.h>
 #endif
@@ -290,23 +290,18 @@ void Hooks::ColorsHooksSA() {
 }
 
 void Hooks::ConfigRefresher() {
-    static uint32_t lastReloadCheck = 0;
-    uint32_t now;
+    InputHandler::UpdateOldKeyState();
 
-    now = GetTickCount();
-    if (now - lastReloadCheck > 150) {
-        lastReloadCheck = now;
-        if (config.ReloadKey != 0) {
-            if (config.ReloadKey == -1 || KeyPressed(config.ReloadKey)) {
-                config.Read();
+    if (config.ReloadKey != 0) {
+        if (config.ReloadKey == -1 || InputHandler::IsKeyJustPressed(config.ReloadKey)) {
+            config.Read();
 #ifdef GTA3
-                ColorsHooksIII();
+            ColorsHooksIII();
 #elif defined(GTAVC)
-                ColorsHooksVC();
+            ColorsHooksVC();
 #elif defined(GTASA)
-                ColorsHooksSA();
+            ColorsHooksSA();
 #endif
-            }
         }
     }
 }
