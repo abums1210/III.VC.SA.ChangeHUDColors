@@ -1,7 +1,6 @@
 #include <cstdlib>
 #include "../includes/Hooks.h"
 #include "../includes/ColorsConfig.h"
-#include "../includes/SomeMacros.h"
 #ifdef GTASA
 #include <CHudColours.h>
 #endif

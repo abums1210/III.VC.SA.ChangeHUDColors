@@ -321,18 +321,11 @@
     <ClCompile Include="Home.cpp" />
     <ClCompile Include="src\ConfigHelper.cpp" />
     <ClCompile Include="src\Hooks.cpp" />
-    <ClCompile Include="src\InputHandler.cpp" />
-    <ClCompile Include="src\ProcessHelper.cpp" />
-    <ClCompile Include="src\StringWrappers.cpp" />
     <ClCompile Include="src\ColorsConfig.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="includes\ConfigHelper.h" />
     <ClInclude Include="includes\Hooks.h" />
-    <ClInclude Include="includes\InputHandler.h" />
-    <ClInclude Include="includes\ProcessHelper.h" />
-    <ClInclude Include="includes\SomeMacros.h" />
-    <ClInclude Include="includes\StringWrappers.h" />
     <ClInclude Include="includes\ColorsConfig.h" />
   </ItemGroup>
   <ItemGroup>
