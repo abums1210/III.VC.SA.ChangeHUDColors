@@ -8,27 +8,14 @@ static void OnGameProcess() {
     Hooks::ConfigRefresher();
 
     if (config.RandomColors != 0) {
-#ifdef GTA3
-        Hooks::ColorsHooksIII();
-#elif defined(GTAVC)
-        Hooks::ColorsHooksVC();
-#else
-        Hooks::ColorsHooksSA();
-#endif
+        Hooks::ApplyColorHooks();
     }
 }
 
 static void OnInitRw() {
     config.Read();
     config.GenerateDefault();
-
-#ifdef GTA3
-    Hooks::ColorsHooksIII();
-#elif defined(GTAVC)
-    Hooks::ColorsHooksVC();
-#else
-    Hooks::ColorsHooksSA();
-#endif
+    Hooks::ApplyColorHooks();
 
     if (config.ReloadKey != 0 || config.RandomColors != 0) {
         Events::gameProcessEvent += OnGameProcess;
